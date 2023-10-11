@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bljs5kctcybs5"]
+
+[ext_resource type="PackedScene" uid="uid://piy50sst1euu" path="res://scenes/third_person_camera.tscn" id="1_848v5"]
+
+[sub_resource type="Environment" id="Environment_gydbj"]
+background_mode = 1
+background_color = Color(0.576471, 0.8, 0.917647, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqdns"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_v6lhx"]
+material = SubResource("StandardMaterial3D_oqdns")
+
+[node name="main" type="Node3D"]
+
+[node name="Root" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("1_848v5")]
+transform = Transform3D(1, 0, 0, 0, 0.843363, 0.537344, 0, -0.537344, 0.843363, 0, 8.33519, 13.7369)
+_target = NodePath("../MeshInstance3D")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(20, 0.5, 20)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gydbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_v6lhx")
+
+[editable path="Root"]

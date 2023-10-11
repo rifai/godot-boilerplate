@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://piy50sst1euu"]
+
+[ext_resource type="Script" path="res://scripts/third_person_camera.gd" id="1_hy18y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_004lb"]
+
+[node name="Root" type="Camera3D"]
+fov = 30.0
+script = ExtResource("1_hy18y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_004lb")
